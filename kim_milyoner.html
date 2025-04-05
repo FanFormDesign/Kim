@@ -1,0 +1,2122 @@
+
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kim Milyoner Olmak İster</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
+        :root {
+            --primary: #6C00FF;
+            --primary-dark: #5A00D0;
+            --secondary: #00FFDD;
+            --secondary-dark: #00D6BA;
+            --neon-glow: 0 0 10px rgba(0, 255, 221, 0.5),
+                          0 0 20px rgba(0, 255, 221, 0.2),
+                          0 0 30px rgba(0, 255, 221, 0.1);
+            --bg-gradient: linear-gradient(135deg, #2A0F5C, #1A0A3C);
+            --bg-dark: #120826;
+            --correct: #00FF88;
+            --wrong: #FF3366;
+        }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+        body {
+            background: var(--bg-gradient);
+            color: white;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            overflow-x: hidden;
+            position: relative;
+        }
+        body::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100'%3E%3Cg fill-rule='evenodd'%3E%3Cg fill='%239C92AC' fill-opacity='0.03'%3E%3Cpath opacity='.5' d='M96 95h4v1h-4v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h4v1h-4v9h4v1h-4v9h4v1h-4v9h4v1h-4v9h4v1h-4v9h4v1h-4v9h4v1h-4v9h4v1h-4v9zm-1 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-9-10h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm9-10v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-9-10h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm9-10v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-9-10h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm9-10v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-9-10h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+            z-index: -1;
+        }
+        /* Parlayan Yıldızlar */
+        .stars {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+        }
+        .star {
+            position: absolute;
+            background-color: white;
+            border-radius: 50%;
+            width: 2px;
+            height: 2px;
+            opacity: 0;
+            animation: twinkle 5s infinite;
+        }
+        @keyframes twinkle {
+            0%, 100% { opacity: 0; }
+            50% { opacity: 0.8; }
+        }
+        /* Hareketli Gradient Arka Plan */
+        .gradient-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(at 50% 50%, rgba(108, 0, 255, 0.2), transparent 70%);
+            opacity: 0.6;
+            transform-origin: center;
+            animation: pulseBg 10s infinite alternate;
+            z-index: -1;
+            pointer-events: none;
+        }
+        @keyframes pulseBg {
+            0% { transform: scale(1); opacity: 0.6; }
+            50% { transform: scale(1.2); opacity: 0.8; }
+            100% { transform: scale(1); opacity: 0.6; }
+        }
+        .container {
+            width: 90%;
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+            position: relative;
+        }
+        /* Karşılama Ekranı */
+        .welcome-screen {
+            text-align: center;
+            padding: 50px 40px;
+            background-color: rgba(0, 0, 0, 0.6);
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
+            margin-bottom: 20px;
+            position: relative;
+            overflow: hidden;
+            animation: fadeIn 1s ease-out;
+            border: 1px solid rgba(0, 255, 221, 0.3);
+            box-shadow: var(--neon-glow);
+        }
+        .welcome-screen::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: conic-gradient(transparent, var(--secondary), transparent 30%);
+            animation: rotate 8s linear infinite;
+            opacity: 0.1;
+        }
+        @keyframes rotate {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        .welcome-screen h1 {
+            color: var(--secondary);
+            font-size: 3rem;
+            margin-bottom: 30px;
+            text-shadow: var(--neon-glow);
+            position: relative;
+            display: inline-block;
+            animation: titlePulse 3s infinite;
+        }
+        @keyframes titlePulse {
+            0%, 100% { text-shadow: 0 0 10px rgba(0, 255, 221, 0.5), 0 0 20px rgba(0, 255, 221, 0.3); }
+            50% { text-shadow: 0 0 15px rgba(0, 255, 221, 0.7), 0 0 30px rgba(0, 255, 221, 0.5); }
+        }
+        .welcome-screen p {
+            font-size: 1.2rem;
+            margin-bottom: 40px;
+            color: #eee;
+            line-height: 1.8;
+            max-width: 80%;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .logo {
+            width: 250px;
+            height: 250px;
+            border-radius: 50%;
+            margin: 0 auto 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+        .logo::before {
+            content: '';
+            position: absolute;
+            width: 240px;
+            height: 240px;
+            border-radius: 50%;
+            background: var(--bg-dark);
+            z-index: 1;
+        }
+        .logo::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            border-radius: 50%;
+            background: conic-gradient(
+                var(--secondary),
+                transparent 30%,
+                transparent 70%,
+                var(--secondary) 100%
+            );
+            animation: rotateBorder 8s linear infinite;
+        }
+        @keyframes rotateBorder {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        .logo .text {
+            position: absolute;
+            width: 130%;
+            height: 130%;
+            animation: spin 30s linear infinite;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--secondary);
+            font-weight: bold;
+            font-size: 1rem;
+            letter-spacing: 1px;
+            z-index: 2;
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        .logo .center-image {
+            position: relative;
+            z-index: 2;
+            width: 150px;
+            height: 150px;
+            color: var(--secondary);
+            font-size: 3rem;
+            font-weight: 800;
+            text-shadow: var(--neon-glow);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            animation: pulseLogo 3s infinite;
+        }
+        @keyframes pulseLogo {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+        /* Butonlar */
+        .btn {
+            background: linear-gradient(45deg, var(--primary), var(--primary-dark));
+            color: white;
+            border: none;
+            padding: 16px 36px;
+            font-size: 1.2rem;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+            font-weight: 600;
+            display: inline-block;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transform: translateX(-100%);
+            transition: all 0.5s ease;
+            z-index: -1;
+        }
+        .btn:hover {
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+        }
+        .btn:hover::before {
+            transform: translateX(100%);
+        }
+        .btn:active {
+            transform: translateY(-2px) scale(0.98);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+        }
+        /* Oyun Ekranı */
+        .game-screen {
+            display: none;
+            width: 100%;
+            animation: fadeIn 0.5s ease-out;
+            position: relative;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        /* Soru Gösterimi */
+        .question-container {
+            background-color: rgba(0, 0, 0, 0.5);
+            padding: 30px;
+            border-radius: 20px;
+            margin-bottom: 20px;
+            text-align: center;
+            position: relative;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(0, 255, 221, 0.3);
+            box-shadow: var(--neon-glow);
+            overflow: hidden;
+        }
+        .question-container::before {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            bottom: -2px;
+            border-radius: 22px;
+            border: 2px solid transparent;
+            background: linear-gradient(45deg, transparent, var(--secondary), transparent 70%) border-box;
+            -webkit-mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
+            -webkit-mask-composite: xor;
+            mask-composite: exclude;
+            animation: borderGlow 4s linear infinite;
+        }
+        @keyframes borderGlow {
+            0%, 100% { opacity: 0.5; }
+            50% { opacity: 1; }
+        }
+        .question-number {
+            position: absolute;
+            top: -25px;
+            left: -25px;
+            width: 60px;
+            height: 60px;
+            background: var(--primary);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: 700;
+            border: 2px solid var(--secondary);
+            box-shadow: var(--neon-glow);
+            z-index: 10;
+        }
+        .question {
+            font-size: 1.5rem;
+            margin-bottom: 40px;
+            line-height: 1.6;
+            font-weight: 500;
+            position: relative;
+            padding: 10px 20px;
+            animation: textGlow 3s infinite;
+            display: inline-block;
+        }
+        @keyframes textGlow {
+            0%, 100% { text-shadow: 0 0 5px rgba(0, 255, 221, 0.5); }
+            50% { text-shadow: 0 0 15px rgba(0, 255, 221, 0.7); }
+        }
+        .question::before {
+            content: '"';
+            position: absolute;
+            left: -10px;
+            top: -10px;
+            font-size: 3rem;
+            color: var(--secondary);
+            opacity: 0.5;
+            line-height: 1;
+        }
+        .question::after {
+            content: '"';
+            position: absolute;
+            right: -10px;
+            bottom: -30px;
+            font-size: 3rem;
+            color: var(--secondary);
+            opacity: 0.5;
+            line-height: 1;
+        }
+        /* Soru Şıkları */
+        .answers {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 15px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .answer {
+            background-color: rgba(30, 30, 60, 0.7);
+            padding: 18px 25px;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative;
+            text-align: left;
+            display: flex;
+            align-items: center;
+            backdrop-filter: blur(5px);
+            border: 1px solid rgba(108, 0, 255, 0.4);
+            overflow: hidden;
+            transform-style: preserve-3d;
+            animation: floatAnswer 3s infinite alternate;
+        }
+        .answer:nth-child(odd) {
+            animation-delay: 0.5s;
+        }
+        .answer:nth-child(even) {
+            animation-delay: 1s;
+        }
+        @keyframes floatAnswer {
+            0% { transform: translateY(0) scale(1); }
+            100% { transform: translateY(-5px) scale(1.02); }
+        }
+        .answer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, rgba(108, 0, 255, 0.1), rgba(108, 0, 255, 0));
+            opacity: 0;
+            transition: opacity 0.5s ease;
+        }
+        .answer::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary), transparent);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.5s ease;
+        }
+        .answer:hover {
+            border-color: var(--secondary);
+            box-shadow: 0 7px 15px rgba(0, 0, 0, 0.3),
+                        0 0 10px rgba(0, 255, 221, 0.3);
+            transform: translateY(-3px) scale(1.03) !important;
+        }
+        .answer:hover::before {
+            opacity: 1;
+        }
+        .answer:hover::after {
+            transform: scaleX(1);
+        }
+        .answer.correct {
+            background: var(--correct);
+            border-color: var(--secondary);
+            box-shadow: 0 0 20px rgba(0, 255, 136, 0.5);
+            animation: correctPulse 1.5s infinite !important;
+        }
+        @keyframes correctPulse {
+            0%, 100% { box-shadow: 0 0 20px rgba(0, 255, 136, 0.5); }
+            50% { box-shadow: 0 0 30px rgba(0, 255, 136, 0.8); }
+        }
+        .answer.wrong {
+            background: var(--wrong);
+            animation: wrongShake 0.5s ease-out !important;
+        }
+        @keyframes wrongShake {
+            0%, 100% { transform: translateX(0); }
+            20%, 60% { transform: translateX(-10px); }
+            40%, 80% { transform: translateX(10px); }
+        }
+        .answer .letter {
+            display: inline-block;
+            margin-right: 15px;
+            font-weight: 700;
+            color: var(--secondary);
+            min-width: 30px;
+            font-size: 1.3rem;
+            position: relative;
+            z-index: 2;
+        }
+        .answer .text {
+            flex: 1;
+            font-size: 1.1rem;
+            font-weight: 500;
+            position: relative;
+            z-index: 2;
+        }
+        /* Aşama Gösterimi */
+        .progress-container {
+            position: absolute;
+            right: -280px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 250px;
+            background-color: rgba(0, 0, 0, 0.7);
+            border-radius: 15px;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            border: 1px solid rgba(0, 255, 221, 0.3);
+            box-shadow: var(--neon-glow);
+            backdrop-filter: blur(10px);
+            transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            z-index: 100;
+            height: auto;
+            max-height: 90vh;
+            overflow-y: auto;
+        }
+        .progress-toggle {
+            position: absolute;
+            left: -30px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 30px;
+            height: 50px;
+            background-color: rgba(0, 0, 0, 0.7);
+            border-radius: 5px 0 0 5px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            border: 1px solid rgba(0, 255, 221, 0.3);
+            border-right: none;
+            box-shadow: var(--neon-glow);
+        }
+        .progress-toggle::before {
+            content: '<';
+            color: var(--secondary);
+            font-weight: bold;
+            transition: transform 0.3s ease;
+        }
+        .progress-container.collapsed {
+            transform: translateX(240px) translateY(-50%);
+        }
+        .progress-container::-webkit-scrollbar {
+            width: 6px;
+        }
+        .progress-container::-webkit-scrollbar-track {
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 10px;
+        }
+        .progress-container::-webkit-scrollbar-thumb {
+            background: var(--secondary);
+            border-radius: 10px;
+        }
+        .progress-container.collapsed .progress-toggle::before {
+            transform: rotate(180deg);
+        }
+        .prize-list-item {
+            padding: 10px 15px;
+            margin: 5px 0;
+            border-radius: 10px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+            display: flex;
+            justify-content: space-between;
+            animation: fadeInRight 0.5s both;
+            animation-delay: calc(0.05s * var(--i));
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            width: 100%;
+        }
+        .prize-list-item span {
+            display: inline-block;
+        }
+        .prize-list-item span:first-child {
+            margin-right: 10px;
+            min-width: 25px;
+        }
+        .prize-list-item span:last-child {
+            text-align: right;
+            flex: 1;
+        }
+        @keyframes fadeInRight {
+            from { opacity: 0; transform: translateX(30px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+        .prize-list-item.active {
+            background-color: var(--secondary);
+            color: var(--bg-dark);
+            transform: scale(1.05);
+            box-shadow: 0 0 15px rgba(0, 255, 221, 0.5);
+            animation: prizePulse 2s infinite;
+            position: relative;
+            overflow: hidden;
+        }
+        .prize-list-item.active::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+            animation: shine 2s infinite;
+        }
+        @keyframes shine {
+            0% { left: -100%; }
+            20% { left: 100%; }
+            100% { left: 100%; }
+        }
+        @keyframes prizePulse {
+            0%, 100% { transform: scale(1.05); }
+            50% { transform: scale(1.08); }
+        }
+        .prize-list-item.milestone {
+            background-color: rgba(255, 255, 255, 0.1);
+            border-left: 3px solid var(--secondary);
+        }
+        /* Prize Göstergesi */
+        .bottom-bar {
+            background-color: rgba(0, 0, 0, 0.7);
+            padding: 20px;
+            border-radius: 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border: 1px solid rgba(0, 255, 221, 0.3);
+            box-shadow: var(--neon-glow);
+            backdrop-filter: blur(10px);
+        }
+        .prize-display {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: var(--secondary);
+            display: flex;
+            align-items: center;
+        }
+        .question-indicator {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: white;
+        }
+        /* Jokerler */
+        .jokers {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 20px;
+        }
+        .joker {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            border: none;
+            font-weight: 700;
+            color: white;
+            font-size: 0.9rem;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+        .joker::before {
+            content: '';
+            position: absolute;
+            top: 2px;
+            left: 2px;
+            right: 2px;
+            bottom: 2px;
+            border-radius: 50%;
+            background: var(--primary-dark);
+            z-index: -1;
+        }
+        .joker::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: conic-gradient(
+                transparent,
+                rgba(255, 255, 255, 0.3),
+                transparent 30%
+            );
+            animation: rotate 4s linear infinite;
+        }
+        .joker:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3),
+                        0 0 15px rgba(108, 0, 255, 0.5);
+        }
+        .joker.used {
+            background: #555;
+            opacity: 0.7;
+            cursor: not-allowed;
+            transform: none;
+            box-shadow: none;
+        }
+        .joker.used::after {
+            display: none;
+        }
+        .joker.used::before {
+            opacity: 0.7;
+            background: #333;
+        }
+        .joker.used span {
+            position: relative;
+        }
+        .joker.used span::before {
+            content: '×';
+            position: absolute;
+            font-size: 2rem;
+            color: var(--wrong);
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+        /* Telefon Jokeri */
+        .phone-a-friend {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) scale(0.9);
+            background-color: rgba(0, 0, 0, 0.85);
+            padding: 30px;
+            border-radius: 20px;
+            width: 90%;
+            max-width: 500px;
+            z-index: 1000;
+            display: none;
+            border: 1px solid rgba(0, 255, 221, 0.5);
+            box-shadow: var(--neon-glow);
+            backdrop-filter: blur(10px);
+            animation: modalShow 0.5s ease-out forwards;
+            overflow: hidden;
+        }
+        .phone-a-friend::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='80' viewBox='0 0 80 80'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M0 0h80v80H0V0zm20 20v40h40V20H20zm20 35a15 15 0 1 1 0-30 15 15 0 0 1 0 30z' opacity='0.4'/%3E%3C/g%3E%3C/svg%3E");
+            z-index: -1;
+        }
+        @keyframes modalShow {
+            from { transform: translate(-50%, -50%) scale(0.9); opacity: 0; }
+            to { transform: translate(-50%, -50%) scale(1); opacity: 1; }
+        }
+        .modal-title {
+            color: var(--secondary);
+            margin-bottom: 25px;
+            font-size: 1.8rem;
+            text-align: center;
+            text-shadow: var(--neon-glow);
+            position: relative;
+        }
+        .modal-title::after {
+            content: '';
+            position: absolute;
+            width: 60px;
+            height: 3px;
+            background-color: var(--secondary);
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            box-shadow: var(--neon-glow);
+        }
+        .friend-response {
+            margin-bottom: 30px;
+            line-height: 1.8;
+            font-size: 1.2rem;
+            background-color: rgba(255, 255, 255, 0.05);
+            padding: 20px;
+            border-radius: 15px;
+            border-left: 3px solid var(--secondary);
+            position: relative;
+            overflow: hidden;
+        }
+        .friend-response::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 0%;
+            height: 100%;
+            background: linear-gradient(90deg,
+                rgba(0, 255, 221, 0.1),
+                rgba(0, 0, 0, 0));
+            animation: typeEffect 3s forwards;
+        }
+        @keyframes typeEffect {
+            0% { width: 0%; }
+            100% { width: 100%; }
+        }
+        .friend-thinking {
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+            margin: 20px 0;
+        }
+        .thinking-dot {
+            width: 12px;
+            height: 12px;
+            background-color: var(--secondary);
+            border-radius: 50%;
+            animation: thinkingDot 1.4s infinite;
+        }
+        .thinking-dot:nth-child(2) {
+            animation-delay: 0.2s;
+        }
+        .thinking-dot:nth-child(3) {
+            animation-delay: 0.4s;
+        }
+        @keyframes thinkingDot {
+            0%, 100% { transform: translateY(0); opacity: 0.5; }
+            50% { transform: translateY(-10px); opacity: 1; }
+        }
+        .close-btn {
+            background: linear-gradient(135deg, var(--wrong), #d00);
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 15px;
+            font-weight: 600;
+            font-size: 1rem;
+            display: block;
+            margin-left: auto;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+        .close-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: all 0.5s ease;
+        }
+        .close-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+        }
+        .close-btn:hover::before {
+            left: 100%;
+        }
+        /* Seyirci Jokeri */
+        .audience-poll {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) scale(0.9);
+            background-color: rgba(0, 0, 0, 0.85);
+            padding: 30px;
+            border-radius: 20px;
+            width: 90%;
+            max-width: 600px;
+            z-index: 1000;
+            display: none;
+            border: 1px solid rgba(0, 255, 221, 0.5);
+            box-shadow: var(--neon-glow);
+            backdrop-filter: blur(10px);
+            animation: modalShow 0.5s ease-out forwards;
+        }
+        .poll-bars {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            height: 250px;
+            margin: 50px 0;
+            padding: 0 20px;
+            position: relative;
+        }
+        .poll-bars::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(0deg, transparent, rgba(0, 255, 221, 0.05) 50%, transparent);
+            pointer-events: none;
+        }
+        .poll-bar {
+            position: relative;
+            width: 22%;
+            background: linear-gradient(to top, var(--primary-dark), var(--primary));
+            border-top-left-radius: 6px;
+            border-top-right-radius: 6px;
+            transform-origin: bottom;
+            animation: barRise 1.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+            box-shadow: 0 0 15px rgba(108, 0, 255, 0.3);
+            overflow: hidden;
+            height: 0;
+        }
+        @keyframes barRise {
+            from { transform: scaleY(0); }
+            to { transform: scaleY(1); }
+        }
+        .poll-bar::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: repeating-linear-gradient(
+                0deg,
+                transparent,
+                transparent 10px,
+                rgba(255, 255, 255, 0.05) 10px,
+                rgba(255, 255, 255, 0.05) 20px
+            );
+        }
+        .poll-bar::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 20px;
+            background: linear-gradient(rgba(255, 255, 255, 0.2), transparent);
+        }
+        .poll-bar-letter {
+            position: absolute;
+            bottom: -40px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-weight: 700;
+            color: var(--secondary);
+            font-size: 1.5rem;
+            text-shadow: var(--neon-glow);
+        }
+        .poll-bar-percentage {
+            position: absolute;
+            bottom: -70px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-weight: 600;
+            color: white;
+            font-size: 1.2rem;
+        }
+        .poll-bar-inner {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            animation: barGlow 3s infinite;
+        }
+        @keyframes barGlow {
+            0%, 100% { box-shadow: inset 0 0 15px rgba(108, 0, 255, 0.3); }
+            50% { box-shadow: inset 0 0 25px rgba(108, 0, 255, 0.5); }
+        }
+        /* Horizontal Grid Lines */
+        .grid-lines {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            pointer-events: none;
+        }
+        .grid-line {
+            height: 1px;
+            width: 100%;
+            background-color: rgba(255, 255, 255, 0.1);
+            position: relative;
+        }
+        .grid-line::before {
+            content: attr(data-value);
+            position: absolute;
+            left: -35px;
+            top: -10px;
+            color: rgba(255, 255, 255, 0.5);
+            font-size: 0.8rem;
+        }
+        /* Zamanlayıcı */
+        .timer {
+            position: absolute;
+            top: -40px;
+            right: 20px;
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background-color: rgba(0, 0, 0, 0.7);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--secondary);
+            border: 2px solid var(--secondary);
+            box-shadow: var(--neon-glow);
+            transition: all 0.3s ease;
+            z-index: 100;
+            animation: pulse 2s infinite;
+        }
+        @keyframes pulse {
+            0%, 100% { box-shadow: var(--neon-glow); }
+            50% { box-shadow: 0 0 20px rgba(0, 255, 221, 0.7); }
+        }
+        .timer.warning {
+            color: #FFCC00;
+            border-color: #FFCC00;
+            animation: pulseWarning 1s infinite;
+        }
+        .timer.danger {
+            color: var(--wrong);
+            border-color: var(--wrong);
+            animation: pulseDanger 0.5s infinite;
+        }
+        @keyframes pulseWarning {
+            0%, 100% { box-shadow: 0 0 15px rgba(255, 204, 0, 0.5); }
+            50% { box-shadow: 0 0 25px rgba(255, 204, 0, 0.8); }
+        }
+        @keyframes pulseDanger {
+            0%, 100% { box-shadow: 0 0 15px rgba(255, 51, 102, 0.5); }
+            50% { box-shadow: 0 0 25px rgba(255, 51, 102, 0.8); }
+        }
+        /* Sonuç Ekranı */
+        .result-screen {
+            text-align: center;
+            padding: 50px 40px;
+            background-color: rgba(0, 0, 0, 0.7);
+            border-radius: 20px;
+            box-shadow: var(--neon-glow);
+            margin-bottom: 20px;
+            border: 1px solid rgba(0, 255, 221, 0.5);
+            display: none;
+            animation: zoomIn 0.5s ease-out;
+            backdrop-filter: blur(10px);
+            position: relative;
+            overflow: hidden;
+        }
+        @keyframes zoomIn {
+            from { opacity: 0; transform: scale(0.9); }
+            to { opacity: 1; transform: scale(1); }
+        }
+        .result-screen::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle,
+                rgba(0, 255, 221, 0.1) 0%,
+                rgba(0, 0, 0, 0) 70%);
+            animation: resultRipple 3s ease-out;
+        }
+        @keyframes resultRipple {
+            0% { transform: scale(0); opacity: 1; }
+            100% { transform: scale(1); opacity: 0; }
+        }
+        .result-screen h2 {
+            color: var(--secondary);
+            font-size: 3rem;
+            margin-bottom: 30px;
+            text-shadow: var(--neon-glow);
+            position: relative;
+            display: inline-block;
+        }
+        .result-screen h2::after {
+            content: '';
+            position: absolute;
+            width: 50%;
+            height: 3px;
+            background-color: var(--secondary);
+            bottom: -10px;
+            left: 25%;
+            box-shadow: var(--neon-glow);
+        }
+        .result-screen p {
+            font-size: 2rem;
+            margin-bottom: 40px;
+            color: #fff;
+            font-weight: 700;
+            animation: fadeInUp 1s 0.3s both;
+        }
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .result-screen .btn {
+            margin-top: 20px;
+            animation: fadeInUp 1s 0.6s both;
+            display: none;
+        }
+        /* Duyarlı ayarlamalar */
+        @media (max-width: 992px) {
+            .progress-container {
+                position: fixed;
+                right: 0;
+                top: 0;
+                transform: translateX(100%);
+                height: 100%;
+                z-index: 1000;
+                justify-content: center;
+            }
+            .progress-container.collapsed {
+                transform: translateX(0);
+            }
+            .progress-toggle {
+                left: -40px;
+                width: 40px;
+                height: 60px;
+                border-radius: 10px 0 0 10px;
+            }
+        }
+        @media (max-width: 768px) {
+            .container {
+                width: 95%;
+                padding: 10px;
+            }
+            .welcome-screen {
+                padding: 30px 20px;
+            }
+            .welcome-screen h1 {
+                font-size: 2.2rem;
+            }
+            .welcome-screen p {
+                font-size: 1rem;
+                max-width: 95%;
+            }
+            .logo {
+                width: 180px;
+                height: 180px;
+            }
+            .question {
+                font-size: 1.2rem;
+                padding: 0 15px;
+            }
+            .question-number {
+                top: -15px;
+                left: -15px;
+                width: 50px;
+                height: 50px;
+                font-size: 1.2rem;
+            }
+            .answer {
+                padding: 15px 20px;
+            }
+            .answer .letter {
+                margin-right: 10px;
+                font-size: 1rem;
+            }
+            .answer .text {
+                font-size: 0.95rem;
+            }
+            .joker {
+                width: 50px;
+                height: 50px;
+                font-size: 0.8rem;
+            }
+            .timer {
+                width: 60px;
+                height: 60px;
+                font-size: 1.5rem;
+                top: 15px;
+                right: 15px;
+            }
+            .btn {
+                padding: 14px 28px;
+                font-size: 1rem;
+            }
+            .prize-display, .question-indicator {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Yıldızlı Arkaplan -->
+    <div class="stars"></div>
+    <div class="gradient-bg"></div>
+    <!-- Yükleme Ekranı -->
+    <div class="loading-screen" id="loading-screen">
+        <div class="loading-logo">
+            <div class="loading-circle"></div>
+            <div class="loading-circle"></div>
+            <div class="loading-circle"></div>
+        </div>
+        <div class="loading-text">YÜKLENIYOR</div>
+        <div class="loading-progress">
+            <div class="loading-bar" id="loading-bar"></div>
+        </div>
+    </div>
+    <!-- Overlay -->
+    <div class="overlay" id="overlay"></div>
+    <div class="container">
+        <div class="sound-control" id="sound-control">
+            <div class="sound-icon"></div>
+        </div>
+        <!-- Karşılama Ekranı -->
+        <div class="welcome-screen" id="welcome-screen">
+            <div class="logo">
+                <div class="text">KİM MİLYONER OLMAK İSTER • KİM MİLYONER OLMAK İSTER •</div>
+                <div class="center-image">M</div>
+            </div>
+            <h1>Kim Milyoner Olmak İster</h1>
+            <p>Hoş geldiniz! 15 soruluk yolculuğunuzda 1 Milyon TL kazanmaya hazır mısınız? Jokerlerinizi akıllıca kullanın ve büyük ödülü kazanın!</p>
+            <button class="btn" id="start-btn">OYUNA BAŞLA</button>
+        </div>
+        <!-- Oyun Ekranı -->
+        <div class="game-screen" id="game-screen">
+            <div class="timer" id="timer">15</div>
+            <div class="question-container">
+                <div class="question-number" id="question-number">1</div>
+                <div class="question animate__animated animate__fadeIn" id="question">Soru yükleniyor...</div>
+                <div class="answers" id="answers">
+                    <div class="answer" data-index="0">
+                        <span class="letter">A:</span> <span class="text">Cevap 1</span>
+                    </div>
+                    <div class="answer" data-index="1">
+                        <span class="letter">B:</span> <span class="text">Cevap 2</span>
+                    </div>
+                    <div class="answer" data-index="2">
+                        <span class="letter">C:</span> <span class="text">Cevap 3</span>
+                    </div>
+                    <div class="answer" data-index="3">
+                        <span class="letter">D:</span> <span class="text">Cevap 4</span>
+                    </div>
+                </div>
+            </div>
+            <div class="bottom-bar">
+                <div class="question-indicator" id="question-indicator">Soru 1/15</div>
+                <div class="jokers">
+                    <button class="joker" id="fifty-fifty" title="50:50"><span>50:50</span></button>
+                    <button class="joker" id="phone-friend" title="Telefon Jokeri"><span>TEL</span></button>
+                    <button class="joker" id="audience-poll" title="Seyirci Jokeri"><span>SEY</span></button>
+                </div>
+                <div class="prize-display" id="prize-display">Ödül: 0 TL</div>
+            </div>
+            <!-- Aşama Gösterimi -->
+            <div class="progress-container" id="progress-container">
+                <div class="progress-toggle" id="progress-toggle"></div>
+                <div class="prize-list-item" data-value="1000000" style="--i:15"><span>15.</span> <span>1.000.000 TL</span></div>
+                <div class="prize-list-item" data-value="500000" style="--i:14"><span>14.</span> <span>500.000 TL</span></div>
+                <div class="prize-list-item milestone" data-value="250000" style="--i:13"><span>13.</span> <span>250.000 TL</span></div>
+                <div class="prize-list-item" data-value="125000" style="--i:12"><span>12.</span> <span>125.000 TL</span></div>
+                <div class="prize-list-item" data-value="64000" style="--i:11"><span>11.</span> <span>64.000 TL</span></div>
+                <div class="prize-list-item" data-value="32000" style="--i:10"><span>10.</span> <span>32.000 TL</span></div>
+                <div class="prize-list-item milestone" data-value="16000" style="--i:9"><span>9.</span> <span>16.000 TL</span></div>
+                <div class="prize-list-item" data-value="8000" style="--i:8"><span>8.</span> <span>8.000 TL</span></div>
+                <div class="prize-list-item" data-value="4000" style="--i:7"><span>7.</span> <span>4.000 TL</span></div>
+                <div class="prize-list-item" data-value="2000" style="--i:6"><span>6.</span> <span>2.000 TL</span></div>
+                <div class="prize-list-item" data-value="1000" style="--i:5"><span>5.</span> <span>1.000 TL</span></div>
+                <div class="prize-list-item milestone" data-value="500" style="--i:4"><span>4.</span> <span>500 TL</span></div>
+                <div class="prize-list-item" data-value="300" style="--i:3"><span>3.</span> <span>300 TL</span></div>
+                <div class="prize-list-item" data-value="200" style="--i:2"><span>2.</span> <span>200 TL</span></div>
+                <div class="prize-list-item active" data-value="100" style="--i:1"><span>1.</span> <span>100 TL</span></div>
+            </div>
+        </div>
+        <!-- Sonuç Ekranı -->
+        <div class="result-screen" id="result-screen">
+            <h2 id="result-title">Tebrikler!</h2>
+            <p id="result-message">1.000.000 TL kazandınız!</p>
+            <!-- Yeniden başlat butonu kaldırıldı (display: none) -->
+            <button class="btn" id="play-again-btn" style="display: none;">YENİDEN OYNA</button>
+        </div>
+        <!-- Telefon Jokeri -->
+        <div class="phone-a-friend" id="phone-a-friend-modal">
+            <h3 class="modal-title">Telefon Jokeri</h3>
+            <div class="friend-thinking" id="friend-thinking">
+                <div class="thinking-dot"></div>
+                <div class="thinking-dot"></div>
+                <div class="thinking-dot"></div>
+            </div>
+            <p class="friend-response" id="friend-response">Arkadaşınız düşünüyor...</p>
+            <button class="close-btn" id="close-phone-friend">KAPAT</button>
+        </div>
+        <!-- Seyirci Jokeri -->
+        <div class="audience-poll" id="audience-poll-modal">
+            <h3 class="modal-title">Seyirci Jokeri</h3>
+            <div class="poll-bars">
+                <div class="grid-lines">
+                    <div class="grid-line" data-value="100%"></div>
+                    <div class="grid-line" data-value="75%"></div>
+                    <div class="grid-line" data-value="50%"></div>
+                    <div class="grid-line" data-value="25%"></div>
+                    <div class="grid-line" data-value="0%"></div>
+                </div>
+                <div class="poll-bar" id="poll-a" style="height: 0%;">
+                    <div class="poll-bar-inner"></div>
+                    <div class="poll-bar-letter">A</div>
+                    <div class="poll-bar-percentage" id="poll-a-percent">0%</div>
+                </div>
+                <div class="poll-bar" id="poll-b" style="height: 0%;">
+                    <div class="poll-bar-inner"></div>
+                    <div class="poll-bar-letter">B</div>
+                    <div class="poll-bar-percentage" id="poll-b-percent">0%</div>
+                </div>
+                <div class="poll-bar" id="poll-c" style="height: 0%;">
+                    <div class="poll-bar-inner"></div>
+                    <div class="poll-bar-letter">C</div>
+                    <div class="poll-bar-percentage" id="poll-c-percent">0%</div>
+                </div>
+                <div class="poll-bar" id="poll-d" style="height: 0%;">
+                    <div class="poll-bar-inner"></div>
+                    <div class="poll-bar-letter">D</div>
+                    <div class="poll-bar-percentage" id="poll-d-percent">0%</div>
+                </div>
+            </div>
+            <button class="close-btn" id="close-audience-poll">KAPAT</button>
+        </div>
+        <!-- Konfeti Efekti -->
+        <div class="confetti" id="confetti"></div>
+    </div>
+    <script>
+        // Global iletişim değişkeni - YouTube analizi ile haberleşme için (YENİ)
+        window.notifyYouTubeAnalysis = function(eventType, ...args) {
+            // Olay verilerini localStorage'a kaydet
+            const event = {
+                type: eventType,
+                args: args,
+                timestamp: Date.now()
+            };
+            localStorage.setItem('milyonerEvent', JSON.stringify(event));
+            console.log('YouTube Analizine bildirim gönderildi:', eventType, args);
+        };
+
+        // Ses efektleri
+        const sounds = {
+            intro: new Audio("https://soundbible.com/mp3/Quiz%20Game%20Show%20-%20Sound%20Effect-SfXUjQ0wG6c.mp3"),
+            start: new Audio("https://soundbible.com/mp3/Quiz%20Game%20Show%20-%20Sound%20Effect-SfXUjQ0wG6c.mp3"),
+            correctAnswer: new Audio("https://soundbible.com/mp3/Correct%20Answer%20Soundeffect%20Nr%201-KI9P89lADMg.mp3"),
+            wrongAnswer: new Audio("https://soundbible.com/mp3/Wrong%20Answer%20Soundeffect%20Nr%202-S5-ZyiVT3Ig.mp3"),
+            countdown: new Audio("https://soundbible.com/mp3/Clock%20Ticking-SoundBible.com-1521730451.mp3"),
+            win: new Audio("https://soundbible.com/mp3/Ta%20Da-SoundBible.com-1884170640.mp3"),
+            joker: new Audio("https://soundbible.com/mp3/Computer%20Magic-SoundBible.com-1670560940.mp3"),
+            hover: new Audio("https://soundbible.com/mp3/Blop-Mark_DiAngelo-79054334.mp3")
+        };
+        // Sesleri hazırla
+        for (const sound in sounds) {
+            sounds[sound].preload = "auto";
+            sounds[sound].volume = 0.5;
+        }
+        sounds.hover.volume = 0.2;
+        // Ses sentezi için değişkenler
+        let speechSynthesis = window.speechSynthesis;
+        let speechUtterance = null;
+        let isSpeaking = false;
+        let readingComplete = false;
+        let autoPlayEnabled = true;
+        let currentVoice = null;
+        let questionCounter = 1; // Soru sayacı ekledik
+        // Soru veritabanı
+        const questions = [
+            {
+                question: "Türkiye'nin başkenti hangi şehirdir?",
+                answers: ["İstanbul", "Ankara", "İzmir", "Bursa"],
+                correctIndex: 1
+            },
+            {
+                question: "Hangisi Türkiye'nin komşu ülkelerinden biri değildir?",
+                answers: ["Yunanistan", "İran", "Irak", "Mısır"],
+                correctIndex: 3
+            },
+            {
+                question: "Çok sağlıklı olduğunu ifade etmek isteyen biri kendisini hangisine benzetir?",
+                answers: ["Limon", "Patates", "Turp", "Patlıcan"],
+                correctIndex: 2
+            },
+            {
+                question: "Hangisi Nobel Ödülü kategorilerinden biri değildir?",
+                answers: ["Edebiyat", "Tıp", "Matematik", "Fizik"],
+                correctIndex: 2
+            },
+            {
+                question: "'Dandini dandini dastana' ninnisinde bostana giren dananın hangi yiyeceği yememesi istenir?",
+                answers: ["Lahana", "Karpuz", "Marul", "Havuç"],
+                correctIndex: 0
+            },
+            {
+                question: "Hangisi 'çok dikkatle korumak, büyük önem vermek' anlamında kullanılan bir sözdür?",
+                answers: ["Gözü gibi saklamak", "Gözü dönmek", "Gözü kalmak", "Gözden düşmek"],
+                correctIndex: 0
+            },
+            {
+                question: "'Çoban Yıldızı' hangisinin diğer adıdır?",
+                answers: ["Venüs", "Halley Kuyruklu Yıldızı", "Jüpiter", "Kutup Yıldızı"],
+                correctIndex: 0
+            },
+            {
+                question: "Birleşmiş Milletler'in genel merkez binasını ziyaret etmek isteyen biri hangi şehre gitmelidir?",
+                answers: ["New York", "Paris", "Lüksemburg", "Brüksel"],
+                correctIndex: 0
+            },
+            {
+                question: "Yüz Kızarması genellikle hangi duyguyu ifade eder?",
+                answers: ["Utanma", "Kızma", "Heyecan", "Korku"],
+                correctIndex: 0
+            },
+            {
+                question: "Az benzin harcayan bir otomobilin benzini ne yaptığı söylenir?",
+                answers: ["Kokladığı", "Yuttuğu", "Yediği", "İçtiği"],
+                correctIndex: 0
+            },
+            {
+                question: "Hangisi bir hücrenin temel yapısal bileşenlerinden biri değildir?",
+                answers: ["Mitokondri", "Çekirdek", "Endoplazmik Retikulum", "Melanin"],
+                correctIndex: 3
+            },
+            {
+                question: "Karadeniz'e özgü yumurtalı, krep benzeri bir yemeğin ve özellikle Konya'da yapılan bol yumurtalı bir tatlının ortak adı nedir?",
+                answers: ["Kaygana", "Yuvalama", "Mıhlama", "Katmer"],
+                correctIndex: 0
+            },
+            {
+                question: "'Hilal-i Ahmer Cemiyeti'nin bugünkü adı nedir?",
+                answers: ["Kızılay", "Yeşilay", "Darülaceze", "Çocuk Esirgeme Kurumu"],
+                correctIndex: 0
+            },
+            {
+                question: "Hangisi 'altın nesil' olarak adlandırılan, 2000'li yılların başında Avrupa kupaları başarıları kazanan Galatasaray kadrosunda yer almamıştır?",
+                answers: ["Gheorghe Hagi", "Rüştü Reçber", "Bülent Korkmaz", "Emre Belözoğlu"],
+                correctIndex: 1
+            },
+            {
+                question: "Hangisi Kıta Avrupa'sının batı, kuzey, doğu ve güney uç noktalarını belirten ve koordinatları bilinen dört kara noktasından biri değildir?",
+                answers: ["Cabo da Roca", "Nordkapp", "Kaliakra Burnu", "Gavdos"],
+                correctIndex: 2
+            }
+        ];
+        // Ödül tablosu
+        const prizes = [
+            100, 200, 300, 500, 1000, 2000, 4000, 8000, 16000, 32000, 64000, 125000, 250000, 500000, 1000000
+        ];
+        // Baraj (Guaranteed) ödüller
+        const milestones = [500, 16000, 250000];
+        // Global değişkenler
+        last_message_timestamp = 0
+        let currentQuestionIndex = 0;
+        let usedQuestions = [];
+        let fiftyFiftyUsed = false;
+        let phoneAFriendUsed = false;
+        let audiencePollUsed = false;
+        let timerInterval;
+        let secondsLeft = 15;
+        let soundMuted = false;
+        // DOM elemanları
+        const loadingScreen = document.getElementById('loading-screen');
+        const loadingBar = document.getElementById('loading-bar');
+        const welcomeScreen = document.getElementById('welcome-screen');
+        const gameScreen = document.getElementById('game-screen');
+        const resultScreen = document.getElementById('result-screen');
+        const questionElement = document.getElementById('question');
+        const questionNumberElement = document.getElementById('question-number');
+        const answersElement = document.getElementById('answers');
+        const questionIndicatorElement = document.getElementById('question-indicator');
+        const prizeDisplayElement = document.getElementById('prize-display');
+        const progressContainerElement = document.getElementById('progress-container');
+        const progressToggleElement = document.getElementById('progress-toggle');
+        const timerElement = document.getElementById('timer');
+        const resultTitleElement = document.getElementById('result-title');
+        const resultMessageElement = document.getElementById('result-message');
+        const overlay = document.getElementById('overlay');
+        const soundControl = document.getElementById('sound-control');
+        const confettiContainer = document.getElementById('confetti');
+        // Joker elemanları
+        const fiftyFiftyButton = document.getElementById('fifty-fifty');
+        const phoneFriendButton = document.getElementById('phone-friend');
+        const audiencePollButton = document.getElementById('audience-poll');
+        const phoneFriendModal = document.getElementById('phone-a-friend-modal');
+        const audiencePollModal = document.getElementById('audience-poll-modal');
+        const friendResponseElement = document.getElementById('friend-response');
+        const friendThinkingElement = document.getElementById('friend-thinking');
+        // Butonlar
+        const startButton = document.getElementById('start-btn');
+        const playAgainButton = document.getElementById('play-again-btn');
+        const closePhoneFriendButton = document.getElementById('close-phone-friend');
+        const closeAudiencePollButton = document.getElementById('close-audience-poll');
+        // Ses sentezi için sesi ayarla
+        function setupSpeech() {
+            // Türkçe sesi ara
+            speechSynthesis.onvoiceschanged = function() {
+                let voices = speechSynthesis.getVoices();
+                // Önce Türkçe sesi bulmaya çalış
+                let turkishVoice = voices.find(voice => voice.lang.includes('tr'));
+                // Türkçe ses yoksa diğer seslerden birini seç
+                if (!turkishVoice) {
+                    turkishVoice = voices.find(voice => voice.lang.includes('en')) || voices[0];
+                }
+                console.log("Kullanılan ses:", turkishVoice ? turkishVoice.name : "Ses bulunamadı");
+                currentVoice = turkishVoice;
+            };
+            // Başlangıçta sesleri yükle
+            speechSynthesis.getVoices();
+        }
+        // Metni sesli oku
+        function speak(text, onComplete, rate = 1.0) {
+            // Önceki konuşmayı durdur
+            if (speechSynthesis.speaking) {
+                speechSynthesis.cancel();
+            }
+            if (soundMuted) {
+                if (onComplete) onComplete();
+                return;
+            }
+            speechUtterance = new SpeechSynthesisUtterance(text);
+            speechUtterance.rate = rate;
+            speechUtterance.volume = 1;
+            // Ses varsa ayarla
+            if (currentVoice) {
+                speechUtterance.voice = currentVoice;
+            }
+            // Konuşma olayları
+            isSpeaking = true;
+            speechUtterance.onend = function() {
+                isSpeaking = false;
+                if (onComplete) onComplete();
+            };
+            speechUtterance.onerror = function(event) {
+                console.error("Ses hatası:", event);
+                isSpeaking = false;
+                if (onComplete) onComplete();
+            };
+            speechSynthesis.speak(speechUtterance);
+        }
+        // Soruları ve şıkları sesli okuma - YouTube analizine bildirim için düzenlendi (YENİ)
+        function readQuestionAndAnswers(callback) {
+            const question = questions[currentQuestionIndex];
+            const questionText = question.question;
+            const letters = ['A', 'B', 'C', 'D'];
+            
+            // YouTube analizine bekleme başlangıcını bildir (YENİ)
+            if (typeof window.notifyYouTubeAnalysis === 'function') {
+                window.notifyYouTubeAnalysis('startWaitingForAnswers');
+            }
+            
+            // Önce soruyu oku
+            speak(questionText, function() {
+                // Sonra sırayla şıkları oku
+                let answerIndex = 0;
+                function readNextAnswer() {
+                    if (answerIndex < 4) {
+                        const letter = letters[answerIndex];
+                        const answerText = question.answers[answerIndex];
+                        speak(`${letter} ${answerText}`, function() {
+                            answerIndex++;
+                            readNextAnswer();
+                        }, 1.1); // Şıkları biraz daha hızlı oku
+                    } else {
+                        // Tüm şıklar okunduktan sonra
+                        readingComplete = true;
+                        if (callback) callback();
+                    }
+                }
+                // İlk şıkkı okumaya başla
+                readNextAnswer();
+            });
+        }
+        // Yıldızlar oluştur
+        function createStars() {
+            const starsContainer = document.createElement('div');
+            starsContainer.className = 'stars';
+            document.body.appendChild(starsContainer);
+            for (let i = 0; i < 150; i++) {
+                const star = document.createElement('div');
+                star.className = 'star';
+                star.style.width = `${Math.random() * 2 + 1}px`;
+                star.style.height = star.style.width;
+                star.style.top = `${Math.random() * 100}%`;
+                star.style.left = `${Math.random() * 100}%`;
+                star.style.animationDelay = `${Math.random() * 5}s`;
+                starsContainer.appendChild(star);
+            }
+        }
+        // Yükleme ekranı
+        function simulateLoading() {
+            let progress = 0;
+            const interval = setInterval(() => {
+                progress += Math.random() * 10;
+                if (progress > 100) progress = 100;
+                loadingBar.style.width = `${progress}%`;
+                if (progress === 100) {
+                    clearInterval(interval);
+                    setTimeout(() => {
+                        loadingScreen.style.opacity = 0;
+                        setTimeout(() => {
+                            loadingScreen.style.display = 'none';
+                            playSound('intro');
+                        }, 1000);
+                    }, 500);
+                }
+            }, 200);
+        }
+        // Konfeti efekti
+        function createConfetti() {
+            confettiContainer.innerHTML = '';
+            const colors = ['#00FFDD', '#6C00FF', '#FFFFFF', '#FF3366'];
+            for (let i = 0; i < 150; i++) {
+                const confetti = document.createElement('div');
+                confetti.className = 'confetti-piece';
+                confetti.style.left = `${Math.random() * 100}%`;
+                confetti.style.width = `${Math.random() * 10 + 5}px`;
+                confetti.style.height = `${Math.random() * 20 + 10}px`;
+                confetti.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+                confetti.style.animationDuration = `${Math.random() * 3 + 2}s`;
+                confetti.style.opacity = Math.random();
+                confettiContainer.appendChild(confetti);
+            }
+        }
+        // Ses kontrolü
+        soundControl.addEventListener('click', () => {
+            soundMuted = !soundMuted;
+            soundControl.classList.toggle('muted', soundMuted);
+            // Ses efektlerini sessize al
+            for (const sound in sounds) {
+                sounds[sound].muted = soundMuted;
+            }
+            // Eğer konuşma devam ediyorsa ve ses kapatıldıysa durdur
+            if (soundMuted && speechSynthesis.speaking) {
+                speechSynthesis.cancel();
+                isSpeaking = false;
+            }
+        });
+        // Hover üzerinde ses çalma
+        document.querySelectorAll('.btn, .answer, .joker').forEach(element => {
+            element.addEventListener('mouseenter', () => {
+                playSound('hover');
+            });
+        });
+        // Geçiş animasyonu
+        function showOverlay(callback) {
+            overlay.classList.add('show');
+            setTimeout(() => {
+                if (callback) callback();
+                setTimeout(() => {
+                    overlay.classList.remove('show');
+                }, 500);
+            }, 500);
+        }
+        // Ses çalma fonksiyonu
+        function playSound(soundName, loop = false) {
+            if (soundMuted) return;
+            // Önceki sesleri durdur (sadece bazıları için)
+            if (soundName !== 'hover') {
+                for (const sound in sounds) {
+                    if (sound !== soundName && sound !== 'hover' && sound !== 'intro') {
+                        sounds[sound].pause();
+                        sounds[sound].currentTime = 0;
+                    }
+                }
+            }
+            sounds[soundName].loop = loop;
+            sounds[soundName].currentTime = 0;
+            sounds[soundName].play().catch(e => console.log("Ses çalma hatası:", e));
+        }
+        // Aşama listesi toggle
+        progressToggleElement.addEventListener('click', () => {
+            progressContainerElement.classList.toggle('collapsed');
+        });
+        // Rastgele soru seçme
+        function getRandomQuestion() {
+            let availableQuestions = questions.filter(
+                (_, index) => !usedQuestions.includes(index)
+            );
+            if (availableQuestions.length === 0) {
+                usedQuestions = [];
+                availableQuestions = questions;
+            }
+            const randomIndex = Math.floor(Math.random() * availableQuestions.length);
+            const questionIndex = questions.indexOf(availableQuestions[randomIndex]);
+            usedQuestions.push(questionIndex);
+            return questionIndex;
+        }
+        // Soruyu gösterme fonksiyonu
+        function showQuestion(questionIndex) {
+            currentQuestionIndex = questionIndex;
+            const question = questions[questionIndex];
+            questionElement.textContent = question.question;
+            questionElement.classList.add('animate__animated', 'animate__fadeIn');
+            setTimeout(() => {
+                questionElement.classList.remove('animate__animated', 'animate__fadeIn');
+            }, 1000);
+            
+            // Doğru sıra numarasını göster (1'den başla)
+            questionNumberElement.textContent = questionCounter;
+            
+            // Cevapları temizle
+            answersElement.innerHTML = '';
+            // Cevapları ekle
+            const letters = ['A', 'B', 'C', 'D'];
+            question.answers.forEach((answer, index) => {
+                const answerElement = document.createElement('div');
+                answerElement.className = 'answer';
+                answerElement.style.animationDelay = `${index * 0.2}s`;
+                answerElement.dataset.index = index;
+                answerElement.innerHTML = `
+                    <span class="letter">${letters[index]}:</span> <span class="text">${answer}</span>
+                `;
+                answerElement.addEventListener('click', () => checkAnswer(index));
+                answersElement.appendChild(answerElement);
+            });
+            // Soru numarası ve ödülü güncelle
+            questionIndicatorElement.textContent = `Soru ${questionCounter}/15`;
+            updatePrizeList();
+            // Zamanlayıcı sayacını görsel olarak devre dışı bırakalım, okuma sırasında görünmesin
+            timerElement.textContent = "...";
+            // Zamanlayıcıyı başlat - bu artık okuma işlemini de içeriyor
+            startTimer();
+            // YENİ: Soru değişikliğini bildir
+            if (typeof window.notifyYouTubeAnalysis === 'function') {
+                window.notifyYouTubeAnalysis('questionChanged', questionCounter);
+                
+                // 5 saniye sonra sohbeti temizleme sinyalini gönder
+                setTimeout(() => {
+                    window.notifyYouTubeAnalysis('refreshYouTubeChat');
+                }, 5000);
+            }
+        }
+        // Zamanlayıcıyı başlatma
+        function startTimer() {
+            // Önce tüm aktif zamanlayıcıları temizle
+            clearInterval(timerInterval);
+            sounds.countdown.pause();
+            // Okuma tamamlandı bayrağını sıfırla
+            readingComplete = false;
+            // Önce soruyu ve cevapları oku
+            readQuestionAndAnswers(function() {
+                // Okuma tamamlandıktan sonra zamanlayıcıyı başlat
+                secondsLeft = 15; // 15 saniye
+                timerElement.textContent = secondsLeft;
+                timerElement.className = 'timer';
+                playSound('countdown', true);
+                timerInterval = setInterval(() => {
+                    secondsLeft--;
+                    timerElement.textContent = secondsLeft;
+                    if (secondsLeft <= 10 && secondsLeft > 5) {
+                        timerElement.className = 'timer warning';
+                    } else if (secondsLeft <= 5) {
+                        timerElement.className = 'timer danger';
+                    }
+                    if (secondsLeft <= 0) {
+                        clearInterval(timerInterval);
+                        sounds.countdown.pause();
+                        // Süre bittiğinde doğru cevabı otomatik seç
+                        const correctIndex = questions[currentQuestionIndex].correctIndex;
+                        const correctAnswer = questions[currentQuestionIndex].answers[correctIndex];
+                        const answerElements = answersElement.querySelectorAll('.answer');
+                        // Doğru cevabı vurgula
+                        answerElements[correctIndex].classList.add('correct');
+                        playSound('correctAnswer');
+                        // Doğru cevabı sesli olarak bildir, sonra devam et
+                        const letters = ['A', 'B', 'C', 'D'];
+                        speak(`Doğru cevap ${letters[correctIndex]}, ${correctAnswer}.`, () => {
+                            // Konuşma bittikten sonra bir sonraki soruya geç
+                            setTimeout(() => {
+                                handleCorrectAnswer();
+                            }, 1000);
+                        });
+                    }
+                }, 1000);
+            });
+        }
+        // Ödül listesini güncelleme
+        function updatePrizeList() {
+            const prizeItems = document.querySelectorAll('.prize-list-item');
+            prizeItems.forEach(item => item.classList.remove('active'));
+            // Aktif ödülü bul ve işaretle
+            const currentPrizeIndex = questionCounter - 1;
+            if (currentPrizeIndex >= 0 && currentPrizeIndex < prizes.length) {
+                const currentPrizeItem = document.querySelector(
+                    `.prize-list-item[data-value="${prizes[currentPrizeIndex]}"]`
+                );
+                if (currentPrizeItem) {
+                    currentPrizeItem.classList.add('active');
+                }
+            }
+            // Önceki soru ödülünü göster
+            prizeDisplayElement.textContent = `Ödül: ${questionCounter > 1 ?
+                prizes[questionCounter - 2].toLocaleString() : 0} TL`;
+        }
+        // Cevap kontrolü - YouTube analizine bildirim için düzenlendi (YENİ)
+        function checkAnswer(selectedIndex) {
+            clearInterval(timerInterval);
+            sounds.countdown.pause();
+            
+            // Konuşma varsa durdur
+            if (isSpeaking) {
+                speechSynthesis.cancel();
+                isSpeaking = false;
+            }
+            
+            // YouTube analizine bekleme bittiğini bildir (YENİ)
+            if (typeof window.notifyYouTubeAnalysis === 'function') {
+                window.notifyYouTubeAnalysis('stopWaitingForAnswers');
+            }
+            
+            const correctIndex = questions[currentQuestionIndex].correctIndex;
+            const correctAnswer = questions[currentQuestionIndex].answers[correctIndex];
+            const answerElements = answersElement.querySelectorAll('.answer');
+            
+            // YouTube analizine doğru cevabı bildir (YENİ)
+            if (typeof window.notifyYouTubeAnalysis === 'function') {
+                const letters = ['A', 'B', 'C', 'D'];
+                window.notifyYouTubeAnalysis('setCorrectAnswer', correctIndex, letters[correctIndex]);
+            }
+            
+            // Tüm cevapları devre dışı bırak
+            answerElements.forEach(el => {
+                el.style.pointerEvents = 'none';
+            });
+            
+            // Doğru ve yanlış cevapları işaretle
+            setTimeout(() => {
+                answerElements[correctIndex].classList.add('correct');
+                if (selectedIndex !== correctIndex) {
+                    answerElements[selectedIndex].classList.add('wrong');
+                    playSound('wrongAnswer');
+                    // Yanlış cevabı sesli olarak bildir
+                    const letters = ['A', 'B', 'C', 'D'];
+                    speak(`Yanlış cevap. Doğru cevap ${letters[correctIndex]}, ${correctAnswer}.`, () => {
+                        setTimeout(() => {
+                            handleWrongAnswer();
+                        }, 1000);
+                    });
+                } else {
+                    playSound('correctAnswer');
+                    // Doğru cevabı sesli olarak bildir
+                    const letters = ['A', 'B', 'C', 'D'];
+                    speak(`Doğru cevap ${letters[correctIndex]}, ${correctAnswer}.`, () => {
+                        setTimeout(() => {
+                            handleCorrectAnswer();
+                        }, 1000);
+                    });
+                }
+            }, 1000);
+        }
+        // Doğru cevap işleme
+        function handleCorrectAnswer() {
+            // Önce soru sayacını artır, sonra kontrol et
+            questionCounter++;
+            if (questionCounter > 15) {
+                // Oyunu kazandı
+                playSound('win');
+                createConfetti();
+                showOverlay(() => {
+                    showResult(true, prizes[14]);
+                });
+            } else {
+                // Sonraki soru
+                showOverlay(() => {
+                    const nextQuestionIndex = getRandomQuestion();
+                    showQuestion(nextQuestionIndex);
+                });
+            }
+        }
+        // Yanlış cevap işleme
+        function handleWrongAnswer() {
+            // Garantili ödülü bul
+            let guaranteedPrize = 0;
+            for (let i = milestones.length - 1; i >= 0; i--) {
+                const milestoneIndex = prizes.indexOf(milestones[i]);
+                if (questionCounter - 1 > milestoneIndex) {
+                    guaranteedPrize = milestones[i];
+                    break;
+                }
+            }
+            showOverlay(() => {
+                showResult(false, guaranteedPrize);
+            });
+        }
+        // Sonuç ekranını gösterme
+        function showResult(isWinner, amount) {
+            gameScreen.style.display = 'none';
+            resultScreen.style.display = 'block';
+            if (isWinner) {
+                resultTitleElement.textContent = 'TEBRİKLER!';
+                resultMessageElement.textContent = `${amount.toLocaleString()} TL kazandınız!`;
+                createConfetti();
+                // Kazanma mesajını sesli oku
+                speak(`Tebrikler! ${amount.toLocaleString()} Türk Lirası kazandınız!`, () => {
+                    // Kazanma mesajından sonra bağış çağrısı
+                    speak("Bu özel etkinlikte bir bağış yapabilir misiniz? Çünkü bugün yapılan her bağış, adınızın VIP listesinde öne çıkmasını sağlıyor ve projemizin devam edebilmesine katkıda bulunmanızı sağlıyor.", () => {
+                        // 3 saniye sonra otomatik olarak yeniden başlat
+                        setTimeout(() => {
+                            resetGameAndStart();
+                        }, 3000);
+                    });
+                });
+            } else {
+                if (amount > 0) {
+                    resultTitleElement.textContent = 'Oyun Bitti!';
+                    resultMessageElement.textContent = `Kazandığınız Tutar: ${amount.toLocaleString()} TL`;
+                    // Sonuç mesajını sesli oku
+                    speak(`Oyun bitti! Kazandığınız tutar: ${amount.toLocaleString()} Türk Lirası`, () => {
+                        // 5 saniye sonra otomatik olarak yeniden başlat
+                        setTimeout(() => {
+                            resetGameAndStart();
+                        }, 5000);
+                    });
+                } else {
+                    resultTitleElement.textContent = 'Üzgünüz!';
+                    resultMessageElement.textContent = 'Hiçbir ödül kazanamadınız.';
+                    // Sonuç mesajını sesli oku
+                    speak('Üzgünüz! Hiçbir ödül kazanamadınız.', () => {
+                        // 5 saniye sonra otomatik olarak yeniden başlat
+                        setTimeout(() => {
+                            resetGameAndStart();
+                        }, 5000);
+                    });
+                }
+            }
+        }
+        // Oyunu sıfırla ve yeniden başlat
+        function resetGameAndStart() {
+            // Oyunu sıfırla
+            questionCounter = 1;
+            currentQuestionIndex = 0;
+            usedQuestions = [];
+            fiftyFiftyUsed = false;
+            phoneAFriendUsed = false;
+            audiencePollUsed = false;
+            // Joker butonlarını sıfırla
+            fiftyFiftyButton.classList.remove('used');
+            phoneFriendButton.classList.remove('used');
+            audiencePollButton.classList.remove('used');
+            // Konuşma varsa durdur
+            if (isSpeaking) {
+                speechSynthesis.cancel();
+                isSpeaking = false;
+            }
+            
+            showOverlay(() => {
+                resultScreen.style.display = 'none';
+                gameScreen.style.display = 'block';
+                // İlk soru için index al
+                const firstQuestionIndex = getRandomQuestion();
+                // Başlangıç mesajını sesli oku
+                speak("Kim Milyoner Olmak İster yarışması başlıyor!", () => {
+                    // Açıkça currentQuestionIndex'i ayarla ve showQuestion'ı çağır
+                    showQuestion(firstQuestionIndex);
+                });
+            });
+        }
+        // 50:50 Jokeri
+        fiftyFiftyButton.addEventListener('click', () => {
+            if (fiftyFiftyUsed) return;
+            playSound('joker');
+            fiftyFiftyUsed = true;
+            fiftyFiftyButton.classList.add('used');
+            const correctIndex = questions[currentQuestionIndex].correctIndex;
+            const answerElements = Array.from(answersElement.querySelectorAll('.answer'));
+            // Yanlış cevapları bul
+            const wrongIndices = [0, 1, 2, 3].filter(i => i !== correctIndex);
+            // Rastgele 2 yanlış cevabı seç ve gizle
+            const shuffledWrong = wrongIndices.sort(() => 0.5 - Math.random());
+            const indicesToHide = shuffledWrong.slice(0, 2);
+            indicesToHide.forEach(i => {
+                setTimeout(() => {
+                    answerElements[i].style.animation = 'none';
+                    answerElements[i].style.transform = 'scale(0)';
+                    answerElements[i].style.opacity = '0';
+                    answerElements[i].style.pointerEvents = 'none';
+                    answerElements[i].style.position = 'absolute';
+                    answerElements[i].style.zIndex = '-1';
+                }, i * 300);
+            });
+            // Joker kullanımını sesli bildir
+            speak("Elli elli jokeri kullanıldı. İki yanlış cevap elendi.");
+        });
+        // Telefon Jokeri
+        phoneFriendButton.addEventListener('click', () => {
+            if (phoneAFriendUsed) return;
+            playSound('joker');
+            phoneAFriendUsed = true;
+            phoneFriendButton.classList.add('used');
+            const correctIndex = questions[currentQuestionIndex].correctIndex;
+            const letters = ['A', 'B', 'C', 'D'];
+            // Arkadaşın doğru cevabı bilme olasılığı
+            let friendKnowsCorrectAnswer = Math.random();
+            // Sorunun zorluğuna göre olasılığı ayarla
+            if (questionCounter <= 5) {
+                friendKnowsCorrectAnswer = 0.9; // İlk 5 soru için %90 bilme olasılığı
+            } else if (questionCounter <= 10) {
+                friendKnowsCorrectAnswer = 0.7; // 6-10 arası sorular için %70
+            } else {
+                friendKnowsCorrectAnswer = 0.5; // Son sorular için %50
+            }
+            friendResponseElement.style.display = 'none';
+            friendThinkingElement.style.display = 'flex';
+            phoneFriendModal.style.display = 'block';
+            // Telefon jokeri kullanımını sesli bildir
+            speak("Telefon jokeri kullanıldı. Arkadaşınız düşünüyor.");
+            setTimeout(() => {
+                friendThinkingElement.style.display = 'none';
+                friendResponseElement.style.display = 'block';
+                let response = "";
+                if (Math.random() < friendKnowsCorrectAnswer) {
+                    // Doğru cevabı verir
+                    response = `Hmm, bu soruyu biliyorum. Cevap kesinlikle ${letters[correctIndex]}. Eminim.`;
+                } else {
+                    // Yanlış cevap veya emin değil
+                    let wrongAnswer;
+                    do {
+                        wrongAnswer = Math.floor(Math.random() * 4);
+                    } while (wrongAnswer === correctIndex);
+                    const confidence = Math.random();
+                    if (confidence > 0.7) {
+                        response = `Bence cevap ${letters[wrongAnswer]} olabilir, ama çok emin değilim.`;
+                    } else {
+                        response = `Maalesef bu soruyu bilmiyorum, ama ${letters[correctIndex]} veya ${letters[wrongAnswer]} olabilir diye tahmin ediyorum.`;
+                    }
+                }
+                friendResponseElement.textContent = response;
+                // Arkadaşın cevabını sesli oku
+                speak(response);
+            }, 2500);
+        });
+        // Seyirci Jokeri
+        audiencePollButton.addEventListener('click', () => {
+            if (audiencePollUsed) return;
+            playSound('joker');
+            audiencePollUsed = true;
+            audiencePollButton.classList.add('used');
+            const correctIndex = questions[currentQuestionIndex].correctIndex;
+            const pollBars = [
+                document.getElementById('poll-a'),
+                document.getElementById('poll-b'),
+                document.getElementById('poll-c'),
+                document.getElementById('poll-d')
+            ];
+            const pollPercentages = [
+                document.getElementById('poll-a-percent'),
+                document.getElementById('poll-b-percent'),
+                document.getElementById('poll-c-percent'),
+                document.getElementById('poll-d-percent')
+            ];
+            audiencePollModal.style.display = 'block';
+            // Seyirci jokeri kullanımını sesli bildir
+            speak("Seyirci jokeri kullanıldı. Seyirciler cevapları oyluyor.");
+            // Zorluğa göre doğru cevap yüzdesi
+            let correctPercentage;
+            if (questionCounter <= 5) {
+                correctPercentage = 70 + Math.floor(Math.random() * 20); // %70-90
+            } else if (questionCounter <= 10) {
+                correctPercentage = 50 + Math.floor(Math.random() * 25); // %50-75
+            } else {
+                correctPercentage = 35 + Math.floor(Math.random() * 25); // %35-60
+            }
+            // Kalan yüzdeyi dağıt
+            const remainingPercentage = 100 - correctPercentage;
+            let percentages = [0, 0, 0, 0];
+            percentages[correctIndex] = correctPercentage;
+            let remaining = remainingPercentage;
+            for (let i = 0; i < 4; i++) {
+                if (i !== correctIndex) {
+                    if (i === 3) {
+                        percentages[i] = remaining;
+                    } else {
+                        const rand = Math.floor(Math.random() * remaining * 0.7);
+                        percentages[i] = rand;
+                        remaining -= rand;
+                    }
+                }
+            }
+            // Animasyonlar
+            setTimeout(() => {
+                for (let i = 0; i < 4; i++) {
+                    pollBars[i].style.height = `${percentages[i]}%`;
+                    pollPercentages[i].textContent = `${percentages[i]}%`;
+                }
+                // Sonuçları sesli oku
+                setTimeout(() => {
+                    const letters = ['A', 'B', 'C', 'D'];
+                    let resultText = "Seyirci oylaması sonuçları: ";
+                    for (let i = 0; i < 4; i++) {
+                        resultText += `${letters[i]} şıkkı yüzde ${percentages[i]},` ;
+                    }
+                    speak(resultText);
+                }, 1000);
+            }, 500);
+        });
+        // Modal kapatma butonları
+        closePhoneFriendButton.addEventListener('click', () => {
+            phoneFriendModal.style.display = 'none';
+            // Konuşma devam ediyorsa iptal et
+            if (isSpeaking) {
+                speechSynthesis.cancel();
+                isSpeaking = false;
+            }
+        });
+        closeAudiencePollButton.addEventListener('click', () => {
+            audiencePollModal.style.display = 'none';
+            // Konuşma devam ediyorsa iptal et
+            if (isSpeaking) {
+                speechSynthesis.cancel();
+                isSpeaking = false;
+            }
+        });
+        // Oyunu başlatma
+        startButton.addEventListener('click', () => {
+            playSound('start');
+            showOverlay(() => {
+                welcomeScreen.style.display = 'none';
+                gameScreen.style.display = 'block';
+                // İlk soruyu göster
+                questionCounter = 1;
+                currentQuestionIndex = 0;
+                usedQuestions = [];
+                fiftyFiftyUsed = false;
+                phoneAFriendUsed = false;
+                audiencePollUsed = false;
+                // Joker butonlarını sıfırla
+                fiftyFiftyButton.classList.remove('used');
+                phoneFriendButton.classList.remove('used');
+                audiencePollButton.classList.remove('used');
+                // Progress container'ı açık göster
+                progressContainerElement.classList.remove('collapsed');
+                // İlk soru için index al
+                const firstQuestionIndex = getRandomQuestion();
+                // Başlangıç mesajını sesli oku, sonra soruyu göster
+                speak("Kim Milyoner Olmak İster yarışması başlıyor!", () => {
+                    // Açıkça currentQuestionIndex'i ayarla ve showQuestion'ı çağır
+                    showQuestion(firstQuestionIndex);
+                });
+            });
+        });
+        // Sayfa yüklendiğinde başlat
+        document.addEventListener('DOMContentLoaded', () => {
+            createStars();
+            simulateLoading();
+            setupSpeech();
+        });
+    </script>
+</body>
+</html>
+                
